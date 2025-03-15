@@ -1,0 +1,103 @@
+
+html {
+  --primary-color: #548b0b;
+  --secondary-color: #020e1b;
+}
+
+
+body {
+  margin: 0;
+}
+
+body {
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  font-family: "Luckiest Guy", cursive;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  background-color: var(--secondary-color);
+  color: var(--primary-color);
+  letter-spacing: 2px;
+}
+
+.heading {
+  font-size: 40px;
+}
+
+.description {
+  font-size: 25px;
+}
+
+#game-board {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  margin-top: 20px;
+}
+
+#new-game-button {
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  background: var(--primary-color);
+  cursor: pointer;
+  color: white;
+  text-transform: uppercase;
+  transition: opacity 0.2s ease-in-out;
+  padding: 10px 25px;
+  border-radius: 25px;
+  font-size: 15px;
+  font-family: inherit;
+  letter-spacing: inherit;
+}
+
+#new-game-button:hover {
+  opacity: 0.8;
+}
+
+.card {
+  width: 80px;
+  height: 80px;
+  perspective: 800px;
+  cursor: pointer;
+}
+
+.card-inner {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.5s;
+}
+
+.card.visible .card-inner {
+  transform: rotateY(180deg);
+}
+
+.card-front,
+.card-back {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  backface-visibility: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--primary-color);
+  border-radius: 10px;
+  box-shadow: 0.05em 0.05em 0.05em 0.05em rgba(0, 0, 0, 0.1);
+  font-size: 40px;
+  color: white;
+}
+
+.card-back {
+  transform: rotateY(180deg);
+}
+
+@media (max-width: 768px) {
+  #game-board {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
