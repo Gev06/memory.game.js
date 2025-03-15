@@ -31,24 +31,13 @@ function startGame() {
 }
 
 function generateArrayWithPairs(arr, fieldSize) {
-  if (arr.length * 2 !== fieldSize) {
-    const errorMessage =
-      "Невозможно создать массив с парами из указанного массива и размера.";
-
-    console.error(errorMessage);
-    return null;
-  }
-
+  if (arr.length * 2 !== fieldSize) 
+    return [];
   const randomArray = [];
-  const elementCounts = {};
-
-  for (const item of arr) {
-    elementCounts[item] = 0;
-  }
+  const elementCounts = Object.fromEntries(arr.map(item => [item, 0]));
 
   while (randomArray.length < fieldSize) {
-    const randomIndex = Math.floor(Math.random() * arr.length);
-    const randomElement = arr[randomIndex];
+    const randomElement = arr[Math.floor(Math.random() * arr.length)];
 
     if (elementCounts[randomElement] < 2) {
       randomArray.push(randomElement);
