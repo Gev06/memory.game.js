@@ -95,9 +95,3 @@ body {
 .card-back {
   transform: rotateY(180deg);
 }
-
-@media (max-width: 768px) {
-  #game-board {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
